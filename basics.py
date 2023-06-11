@@ -33,3 +33,5 @@ Write a program, which has two print statements to print the following text
 Pay attention that usage of spaces is forbidden, as well as creating the whole result 
 text string using """ """, use '\n' and '\t' symbols instead.
 '''
+
+print('hello VSC')
