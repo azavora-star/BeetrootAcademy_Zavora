@@ -13,7 +13,6 @@
 
 # defining function
 def make_operation(operation, *numbers):
-    
     if operation == '+':
         result = 0
         for number in numbers:
