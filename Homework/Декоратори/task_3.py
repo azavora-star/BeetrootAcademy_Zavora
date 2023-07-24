@@ -8,17 +8,20 @@
 def arg_rules(type_: type, max_length: int, contains: list):
     def decorator(func):
         def wrapper(name):
-            str = func(name)
-            if type(str) != str:
+            string = func(name)
+            if isinstance(name, type_) is False:
                 return False
-            elif len(str) >= max_length:
+            elif len(name) >= max_length:
                 return False
-            elif 
-
-
+            else: 
+                for char in contains:
+                    if char in name:
+                        return string
+                return False
+        return wrapper
+    return decorator    
 
  
-
 @arg_rules(type_=str, max_length=15, contains=['05', '@'])
 def create_slogan(name: str) -> str:
     return f"{name} drinks pepsi in his brand new BMW!"

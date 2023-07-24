@@ -3,10 +3,10 @@
 def stop_words(words: list):
     def decorator(func):
         def wrapper(name):
-            str = func(name)
+            string = func(name)
             for word in words:
-                str = str.replace(word, '*')
-            return str
+                string = string.replace(word, '*')
+            return string
         return wrapper
     return decorator
 
