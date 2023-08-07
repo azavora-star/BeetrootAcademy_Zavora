@@ -35,28 +35,39 @@ class ProductStore:
         self.products = {}
 
     def add(self, product, amount):
-
+        # if this product is not in the store yet
         if product.name not in self.products:
-            self.products[product.name] = {"product": product, "amount": amount}
-            self.products[product.name][""] = self.products[product.name]["price"] * 1.3
+            self.products[product.name] = {"product_type": product.product_type, "price": product.price * 1.3, "amount": amount}
 
+        # if this product is already in the store
         else:
-            # If the product is already in the store, update its amount and apply a 30% premium to the price
             self.products[product.name]["amount"] += amount
-            self.products[product.name]["product"].price *= 1.3
+
+    def set_discount(self, identifier, percent, identifier_type):
+        if identifier_type == 'name':
+            self.products[identifier]["price"] =  self.products[identifier]["price"] * (1 - percent / 100)
+        
+        if identifier_type == 'type':
+            for product in self.products:
+                if self.products[product]["product_type"] == identifier:
+                    self.products[product]["price"] =  self.products[product]["price"] * (1 - percent / 100)    
 
 
 
 
-
-p = Product('Sport', 'Football T-Shirt', 100)
-
+p1 = Product('Sport', 'Football T-Shirt', 100)
 p2 = Product('Food', 'Ramen', 1.5)
+p3 = Product('Sport', 'Running Shoes', 100)
 
 s = ProductStore()
+s.add(p1, 20)
+s.add(p2, 500)
+s.add(p3, 150)
 
-s.add(p, 10)
-print(p.price)
+s.set_discount('Sport', 15 , 'type')
+
+#s.add(product1, 25)
+print(s.products)
 
 # s.add(p2, 300)
 
