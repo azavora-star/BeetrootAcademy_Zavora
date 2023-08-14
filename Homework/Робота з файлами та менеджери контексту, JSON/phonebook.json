@@ -1,0 +1,63 @@
+[
+    {
+      "first_name": "John",
+      "last_name": "Doe",
+      "phone": "123-456-7890",
+      "city": "New York"
+    },
+    {
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "phone": "987-654-3210",
+      "city": "Los Angeles"
+    },
+    {
+      "first_name": "Michael",
+      "last_name": "Johnson",
+      "phone": "555-123-4567",
+      "city": "Chicago"
+    },
+    {
+      "first_name": "Emily",
+      "last_name": "Williams",
+      "phone": "444-555-6666",
+      "city": "Houston"
+    },
+    {
+      "first_name": "David",
+      "last_name": "Brown",
+      "phone": "777-888-9999",
+      "city": "Miami"
+    },
+    {
+      "first_name": "Sarah",
+      "last_name": "Wilson",
+      "phone": "111-222-3333",
+      "city": "San Francisco"
+    },
+    {
+      "first_name": "Christopher",
+      "last_name": "Taylor",
+      "phone": "555-888-4444",
+      "city": "Seattle"
+    },
+    {
+      "first_name": "Olivia",
+      "last_name": "Anderson",
+      "phone": "222-333-5555",
+      "city": "Denver"
+    },
+    {
+      "first_name": "William",
+      "last_name": "Martinez",
+      "phone": "666-999-1111",
+      "city": "Phoenix"
+    },
+    {
+      "first_name": "Ava",
+      "last_name": "White",
+      "phone": "888-444-6666",
+      "city": "Boston"
+    }
+  ]
+  
