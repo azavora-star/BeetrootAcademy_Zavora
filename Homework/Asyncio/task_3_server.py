@@ -1,31 +1,28 @@
 # Echo server with asyncio
 # Create a socket echo server which handles each connection using asyncio Tasks.
 
-
 import socket
 import asyncio
 
-HOST = '127.0.0.1'  # Standard loop-back interface address (localhost)
-PORT = 7575        # Port to listen on (non-privileged ports are > 1023)
+HOST = '127.0.0.1'
+PORT = 7575
 
-async def client_handling(addr, conn):
-     while True:
-        data = conn.recv(1024)
+async def client_handling(conn, addr):
+    while True:
+        data = await conn.recv(1024)
         if not data:
             break
-        conn.sendall(data.upper())
+        await conn.sendall(data.upper())
 
 async def main():
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.bind((HOST, PORT))
-        s.listen()
-        conn, addr = s.accept()
-        with conn:
-            print('Connected by', addr)
+    loop = asyncio.get_event_loop()
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind((HOST, PORT))
+    server.listen()
     
-    task1 = asyncio.create_task(client_handling(addr, conn))
-    await asyncio.gather(task1)
+    while True:
+        conn, addr = await loop.sock_accept(server)
+        print('Connected by', addr)
+        asyncio.create_task(client_handling(conn, addr))
 
-asyncio.run(main())            
-
-            
+asyncio.run(main())
